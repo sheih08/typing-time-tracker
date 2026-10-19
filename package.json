@@ -1,0 +1,48 @@
+{
+  "name": "typing-time-tracker",
+  "displayName": "Active Typing Time Tracker",
+  "description": "Tracks active coding time, shows statistics with charts, and reminds you to take breaks.",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "typingTracker.showStats",
+        "title": "Typing Tracker: Show Statistics & Charts",
+        "icon": "$(graph)"
+      },
+      {
+        "command": "typingTracker.resetTimer",
+        "title": "Typing Tracker: Reset Today's Timer"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "typingTracker.resetTimer",
+          "when": "false"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^16.18.0",
+    "@types/vscode": "^1.75.0",
+    "@vscode/vsce": "^2.22.0",
+    "typescript": "^4.9.4"
+  }
+}
